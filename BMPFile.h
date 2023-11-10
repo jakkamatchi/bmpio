@@ -14,9 +14,12 @@ class BMPFile {
 	public:
 		BMPFile(std::string);
 		~BMPFile();
-
+		
 		std::ifstream input;
-	
+		std::ofstream log;
+
+		char* FileData;
+
 		BMPHeader* Header;
 		BMPInfoHeader* InfoHeader;
 		BMPColorTable* ColorTable;

@@ -6,7 +6,7 @@
 
 class BMPPixelData {
 	public:
-		BMPPixelData(std::ifstream*);
+		BMPPixelData(std::ifstream&);
 		~BMPPixelData();
 };
 
