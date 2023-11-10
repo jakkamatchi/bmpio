@@ -1,3 +1,3 @@
 #!/bin/bash
 
-g++ main.cpp -o bmpio
+g++ main.cpp BMPFile.cpp BMPHeader.cpp BMPInfoHeader.cpp BMPColorTable.cpp BMPPixelData.cpp -o bmpio

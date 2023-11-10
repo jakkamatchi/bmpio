@@ -3,30 +3,13 @@
 #include <string>
 
 #include "BMPFile.h"
-
-class Header {
-	Header(*std::ifstream);
-	~Header();
-};
-
-class InfoHeader{
-	InfoHeader(*std::ifstream);
-	~InfoHeader();
-};
-
-class ColorTable {
-	ColorTable(*std::ifstream);
-	~ColorTable();
-};
-
-class PixelData {
-	PixelData(*std::ifstream);
-	~PixelData()
-};
+#include "BMPHeader.h"
+#include "BMPInfoHeader.h"
+#include "BMPColorTable.h"
+#include "BMPPixelData.h"
 
 int main(int argc, char* argv[]) {
-	BMPFile file("input.bmp");
-
+	BMPFile file("input.txt");
 
 	return 0;
 }

@@ -3,3 +3,5 @@ bmp reader
 	info header
 	color table
 	pixel data
+
+

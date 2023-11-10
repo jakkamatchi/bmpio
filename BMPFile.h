@@ -1,19 +1,26 @@
 #ifndef __BMPFILE_H_INCLUDED__
 #define __BMPFILE_H_INCLUDED__
 
+#include <iostream>
 #include <string>
 #include <fstream>
 
-class BMPFile {
-	BMPFile(std::string);
-	~BMPFile();
+#include "BMPHeader.h"
+#include "BMPInfoHeader.h"
+#include "BMPColorTable.h"
+#include "BMPPixelData.h"
 
-	std::ifstream input;
+class BMPFile {
+	public:
+		BMPFile(std::string);
+		~BMPFile();
+
+		std::ifstream input;
 	
-	Header BMPHeader;
-	InfoHeader BMPInfoHeader;
-	ColorTable BMPColorTable;
-	PixelData BMPPixelData;	
+		BMPHeader* Header;
+		BMPInfoHeader* InfoHeader;
+		BMPColorTable* ColorTable;
+		BMPPixelData* PixelData;	
 };
 
 #endif
