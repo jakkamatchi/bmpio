@@ -12,7 +12,7 @@
 
 class BMPFile {
 	public:
-		BMPFile(std::string);
+		BMPFile(char*);
 		~BMPFile();
 		
 		std::ifstream input;

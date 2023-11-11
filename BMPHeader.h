@@ -6,12 +6,12 @@
 
 class BMPHeader {
 	public:
-		BMPHeader(std::ifstream&);
+		BMPHeader(std::ifstream&, std::ofstream&);
 		~BMPHeader();
 
 		std::string BMPSignature;	//BMP Signature 'BM'
 		uint32_t BMPFileSize;		//File size
-		uint32_t DataOffset;		//Offset to start of PixelData
+		uint32_t BMPDataOffset;		//Offset to start of PixelData
 };
 
 #endif 

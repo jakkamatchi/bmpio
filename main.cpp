@@ -9,7 +9,7 @@
 #include "BMPPixelData.h"
 
 int main(int argc, char* argv[]) {
-	BMPFile file("input.txt");
+	BMPFile file(argv[1]);
 
 	return 0;
 }
