@@ -3,6 +3,9 @@
 
 #include "BMPFile.h"
 #include "BMPHeader.h"
+#include "BMPInfoHeader.h"
+#include "BMPColorTable.h"
+#include "BMPPixelData.h"
 
 BMPFile::BMPFile(char* filename) {
 	input.open(filename, std::ios::in|std::ios::binary|std::ios::ate);
@@ -16,10 +19,18 @@ BMPFile::BMPFile(char* filename) {
 		input.seekg(0, std::ios::beg);
 		input.read(FileData, FileSize);		
 
-		BMPHeader* Header = new BMPHeader(input, log);
-		BMPInfoHeader* InfoHeader = new BMPInfoHeader(input, log);
-		BMPColorTable* ColorTable = new BMPColorTable(input);
-		BMPPixelData* PixelData = new BMPPixelData(input);
+		BMPFile::Header = new BMPHeader(input, log);
+
+		BMPFile::InfoHeader = new BMPInfoHeader(input, log);
+
+		if(InfoHeader->BMPBitsPerPixel <= 8) {	
+			BMPFile::ColorTable = new BMPColorTable(input, log, *Header, *InfoHeader);
+		}
+		else {
+			BMPFile::ColorTable = new BMPColorTable();
+		}
+		
+		this->PixelData = new BMPPixelData(input, log, *Header, *InfoHeader, *ColorTable);
 	}
 	else {
 		log << "Failed to open: " << filename;

@@ -4,10 +4,19 @@
 #include <fstream>
 #include <iostream>
 
+#include "BMPColorTable.h"
+#include "BMPHeader.h"
+#include "BMPInfoHeader.h"
+
 class BMPPixelData {
 	public:
-		BMPPixelData(std::ifstream&);
+		BMPPixelData(std::ifstream&, std::ofstream&, BMPHeader&, BMPInfoHeader&, BMPColorTable&);
+		BMPPixelData() { } ;
 		~BMPPixelData();
+
+		std::vector<char> VPixelData;
+
+
 };
 
 #endif

@@ -1,15 +1,15 @@
-Opened: green.bmp
+Opened: input.bmp
 Signature: BM
-FileSize: 4294947686
-DataOffset: 54
+FileSize: 1094
+DataOffset: 1078
 Size: 40
-Width: 4294967290
-Height: 1309
+Width: 8
+Height: 2
 Planes: 1
-Bits Per Pixel: 24
+Bits Per Pixel: 8
 Compression: 0
-Image Size: 4294947632
+Image Size: 16
 X Pixels Per Meter: 0
 Y Pixels Per Meter: 0
-Colors Used: 0
-Important Colors: 0
+Colors Used: 256
+Important Colors: 256

@@ -7,6 +7,7 @@
 class BMPInfoHeader{
 	public:
 		BMPInfoHeader(std::ifstream&, std::ofstream&);
+		BMPInfoHeader() { };
 		~BMPInfoHeader();
 
 		uint32_t BMPSize = 0;

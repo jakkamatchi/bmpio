@@ -23,7 +23,7 @@ class BMPFile {
 		BMPHeader* Header;
 		BMPInfoHeader* InfoHeader;
 		BMPColorTable* ColorTable;
-		BMPPixelData* PixelData;	
+		BMPPixelData* PixelData;
 };
 
 #endif
