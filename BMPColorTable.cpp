@@ -19,7 +19,6 @@ BMPColorTable::BMPColorTable(std::ifstream& input, std::ofstream& log, BMPHeader
 	ColorEntry.BLUE = 0;
 
 	for (int i = 0; i < numEntries; i++) {
-		std::cout << i; 
 		input.seekg(byteRead, std::ios::beg);
 		input.read(color_entry_input, 4);
 		
@@ -28,7 +27,7 @@ BMPColorTable::BMPColorTable(std::ifstream& input, std::ofstream& log, BMPHeader
 		ColorEntry.RED = color_entry_input[2];
 		
 		BMPColorData.push_back(ColorEntry);
-		//std::cout << "R:" << static_cast<int>(BMPColorData[i].RED) << " G:" << (int)BMPColorData[i].GREEN << " B:" << static_cast<int>(BMPColorData[i].BLUE) << std::endl; 
+		std::cout << "R:" << static_cast<int>(BMPColorData[i].RED) << " G:" << (int)BMPColorData[i].GREEN << " B:" << static_cast<int>(BMPColorData[i].BLUE) << std::endl; 
 		byteRead += 4;
 	}
 

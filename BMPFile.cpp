@@ -37,6 +37,7 @@ BMPFile::BMPFile(char* filename) {
 	}
 
 	input.close();
+	log.close();
 }
 
 BMPFile::~BMPFile() {

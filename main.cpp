@@ -22,7 +22,7 @@ class Display {
 	int cursor_X = 0;
 	int cursor_Y = 0;
 
-	void PrintData(BMPFile&);
+	void PrintData(BMPFile&, std::ofstream&);
 };
 
 Display::Display(BMPFile& File) {
@@ -47,7 +47,10 @@ Display::~Display() {
 
 }
 
-void Display::PrintData(BMPFile& File) {
+void Display::PrintData(BMPFile& File, std::ofstream& log) {
+	std::ostringstream ss;	
+	ss << termcolor::colorize;
+
 	for (int i = 0; i < File.InfoHeader->BMPImageSize; i++ ) {		
 		std::cout << "read char no. " << i << ": " << (int)File.PixelData->VPixelData[i] << std::endl;
 		char ct_ref = File.PixelData->VPixelData[i];
@@ -56,29 +59,22 @@ void Display::PrintData(BMPFile& File) {
 		uint8_t GREEN = File.ColorTable->BMPColorData[(int)ct_ref].GREEN; 
 		uint8_t RED = File.ColorTable->BMPColorData[(int)ct_ref].RED;
 		
-		uint8_t R = 1;
-		uint8_t G = 2;
-		uint8_t B = 3;
-		
-		std::ostringstream ss;		
-		ss << termcolor::colorize;
-		
-		ss << "\033[38;2;" << +RED << ";" << +GREEN << ";" << +BLUE << "m";
-		ss << (int)BLUE << " "  << (int)RED << " "  << (int)GREEN << std::endl;	
+		log << "\033[38;2;" << +RED << ";" << +GREEN << ";" << +BLUE << "m";
+		log << (int)BLUE << " "  << (int)RED << " "  << (int)GREEN << "\n";	
 		//ss << termcolor::color<uint8_t i>;// << "@";
-		std::cout << ss.str();
+		//std::cout << ss.str();
 	}
+	std::cout << ss.str();
 }
 
 int main(int argc, char* argv[]) {
-	BMPFile file(argv[1]);
+	std::ofstream log;
+	log.open(argv[1], std::ios::out);
 
-	std::cout << "file read" << std::endl;
-	std::cout << file.InfoHeader->BMPImageSize;
-	std::cout << "sig";
+	BMPFile file(argv[1]);
 	
 	Display display(file);
-	display.PrintData(file);
+	display.PrintData(file, log);
 
 	return 0;
 }
