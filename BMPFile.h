@@ -12,11 +12,10 @@
 
 class BMPFile {
 	public:
-		BMPFile(char*);
+		BMPFile(char*, std::ofstream&);
 		~BMPFile();
 		
 		std::ifstream input;
-		std::ofstream log;
 
 		char* FileData;
 

@@ -7,9 +7,8 @@
 #include "BMPColorTable.h"
 #include "BMPPixelData.h"
 
-BMPFile::BMPFile(char* filename) {
+BMPFile::BMPFile(char* filename, std::ofstream& log) {
 	input.open(filename, std::ios::in|std::ios::binary|std::ios::ate);
-	log.open("log.log", std::ios::out);
 
 	if(input.is_open() == true) {
 		log << "Opened: " << filename << std::endl;
@@ -37,7 +36,6 @@ BMPFile::BMPFile(char* filename) {
 	}
 
 	input.close();
-	log.close();
 }
 
 BMPFile::~BMPFile() {

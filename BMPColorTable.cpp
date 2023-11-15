@@ -8,7 +8,7 @@ BMPColorTable::BMPColorTable(std::ifstream& input, std::ofstream& log, BMPHeader
 	int colorDataSize = header.BMPDataOffset - OFFSET_COLOR_TABLE;
 	int numEntries = colorDataSize / 4;
 
-	std::cout << "size: " << colorDataSize << "entries: " << numEntries;
+	std::cout << "Color Data Size: " << colorDataSize << "Color Data Entries: " << numEntries;
 
 	int byteRead = OFFSET_COLOR_TABLE;
 	char* color_entry_input = new char[4];
@@ -27,7 +27,7 @@ BMPColorTable::BMPColorTable(std::ifstream& input, std::ofstream& log, BMPHeader
 		ColorEntry.RED = color_entry_input[2];
 		
 		BMPColorData.push_back(ColorEntry);
-		std::cout << "R:" << static_cast<int>(BMPColorData[i].RED) << " G:" << (int)BMPColorData[i].GREEN << " B:" << static_cast<int>(BMPColorData[i].BLUE) << std::endl; 
+		//std::cout << "R:" << static_cast<int>(BMPColorData[i].RED) << " G:" << (int)BMPColorData[i].GREEN << " B:" << static_cast<int>(BMPColorData[i].BLUE) << std::endl; 
 		byteRead += 4;
 	}
 
