@@ -54,7 +54,7 @@ void Display::Print_8_BPP(BMPFile& File, std::ofstream& log) {
 	ss << termcolor::colorize;
 	int c = 0;
 
-	for (int i = 0; i < File.InfoHeader->BMPImageSize; i++ ) {		
+	for (int i = File.InfoHeader->BMPImageSize; i > -1; i-- ) {		
 		//std::cout << "read char no. " << i << ": " << (int)File.PixelData->VPixelData[i] << std::endl;
 		char ct_ref = File.PixelData->VPixelData[i];
 	

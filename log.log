@@ -1,15 +1,15 @@
-Opened: sq.bmp
+Opened: dots.bmp
 Signature: BM
-FileSize: 10070
-DataOffset: 70
+FileSize: 219634
+DataOffset: 1078
 Size: 40
-Width: 100
-Height: 100
+Width: 467
+Height: 467
 Planes: 1
 Bits Per Pixel: 8
 Compression: 0
-Image Size: 10000
-X Pixels Per Meter: 2925
-Y Pixels Per Meter: 2925
-Colors Used: 4
-Important Colors: 4
+Image Size: 218556
+X Pixels Per Meter: 0
+Y Pixels Per Meter: 0
+Colors Used: 256
+Important Colors: 256
