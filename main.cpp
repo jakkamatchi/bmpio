@@ -52,28 +52,25 @@ Display::~Display() {
 void Display::Print_8_BPP(BMPFile& File, std::ofstream& log) {
 	std::ostringstream ss;	
 	ss << termcolor::colorize;
-	int c = 0;
 
-	for (int i = File.InfoHeader->BMPImageSize; i > -1; i-- ) {		
-		//std::cout << "read char no. " << i << ": " << (int)File.PixelData->VPixelData[i] << std::endl;
-		char ct_ref = File.PixelData->VPixelData[i];
-	
-		uint8_t BLUE = File.ColorTable->BMPColorData[(int)ct_ref].BLUE;
-		uint8_t GREEN = File.ColorTable->BMPColorData[(int)ct_ref].GREEN; 
-		uint8_t RED = File.ColorTable->BMPColorData[(int)ct_ref].RED;
+	int c = File.InfoHeader->BMPWidth;
+	int pixelIndex;
+
+	for (int i = File.InfoHeader->BMPHeight; i > 0; i-- ) {
+		for(int j = File.InfoHeader->BMPWidth; j > 0; j--) {
+			pixelIndex = (c * i) - j; 
+			char ct_ref = File.PixelData->VPixelData[pixelIndex];
+
+			uint8_t BLUE = File.ColorTable->BMPColorData[(int)ct_ref].BLUE;
+			uint8_t GREEN = File.ColorTable->BMPColorData[(int)ct_ref].GREEN; 
+			uint8_t RED = File.ColorTable->BMPColorData[(int)ct_ref].RED;
 		
-		//log << "\033[38;2;" << +RED << ";" << +GREEN << ";" << +BLUE << "m";
-		//log << (int)BLUE << " " << (int)RED << " "  << (int)GREEN << "\n";	
-	
-		ss << "\033[38;2;" << +RED << ";" << +GREEN << ";" << +BLUE << "m" << "\u2588\u2588";
-		if(c == File.InfoHeader->BMPWidth + 1) {
-			ss << "\n";
-			c = 0;
+			ss << "\033[38;2;" << +RED << ";" << +GREEN << ";" << +BLUE << "m" << "@@";//\u2588\u2588";
 		}
 
-		c++;
-
+		ss << "\n";
 	}
+
 	std::cout << ss.str();
 }
 

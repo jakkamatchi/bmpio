@@ -1,15 +1,15 @@
-Opened: dots.bmp
+Opened: custom.bmp
 Signature: BM
-FileSize: 219634
-DataOffset: 1078
-Size: 40
-Width: 467
-Height: 467
+FileSize: 1427466
+DataOffset: 138
+Size: 124
+Width: 895
+Height: 531
 Planes: 1
-Bits Per Pixel: 8
+Bits Per Pixel: 24
 Compression: 0
-Image Size: 218556
-X Pixels Per Meter: 0
-Y Pixels Per Meter: 0
-Colors Used: 256
-Important Colors: 256
+Image Size: 1427328
+X Pixels Per Meter: 3779
+Y Pixels Per Meter: 3789
+Colors Used: 0
+Important Colors: 0
